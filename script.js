@@ -17,15 +17,27 @@ function setProgress(percent) {
     circle.style.strokeDashoffset = offset;
 }
 
-inputProgressVal.addEventListener("change", () => {
-   setProgress(inputProgressVal.value);
+function isNumber(evt) {
+    let charCode = evt.keyCode;
+
+    if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+        evt.preventDefault();
+    } else {
+        return true;
+    }
+}
+
+inputProgressVal.addEventListener("input", function(event) {
+    setProgress(this.value);
 });
 
 inputProgressAnimate.addEventListener("change", function () {
     if (this.checked) {
+        inputProgressVal.disabled = true;
         circle.classList.add("progress-ring__circle_animate");
     }
     else {
+        inputProgressVal.disabled = false;
         circle.classList.remove("progress-ring__circle_animate");
     }
 });

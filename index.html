@@ -24,8 +24,12 @@
         <div class="progress-settings">
             <div class="progress-settings__frame">
                 <div class="progress-settings__frame__input">
-                    <label for="percentFill">
-                        <input type="number" id="percentFill" value="0" placeholder="0" min="0" max="100">
+                    <label class="input-value" for="percentFill">
+                        <input type="number" id="percentFill"
+                               placeholder="0" min="0" max="100" step="1"
+                               oninput="validity.valid||(value='');"
+                               onpress="isNumber(event)"
+                        >
                     </label>
                     <p>Value</p>
                 </div>

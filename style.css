@@ -25,7 +25,8 @@ html, body, .container {
 .container {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .container > p {
@@ -87,7 +88,7 @@ html, body, .container {
 }
 
 .progress-ring__circle_animate {
-    animation: progress-steps 3s ease-in-out infinite;
+    animation: progress-steps 2.5s cubic-bezier(.77,0,.18,1) infinite;
 }
 
 @keyframes progress-steps {
@@ -119,10 +120,16 @@ input[id="percentFill"] {
     border-radius: 25px;
     font-family: "GT Eesti Pro Text", sans-serif;
     font-size: 1rem;
-    line-height: 2rem;
+    line-height: 1.5rem;
     border: black 1px solid;
     text-align: center;
+    /*-moz-appearance: textfield;*/
 }
+
+/*input[id="percentFill"]::-webkit-outer-spin-button,*/
+/*input[id="percentFill"]::-webkit-inner-spin-button {*/
+/*    display: none;*/
+/*}*/
 
 input[id="percentFill"]:focus {
     border-color: rgba(0, 91, 255, 0.25);
